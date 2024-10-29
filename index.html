@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzaria Sabor Especial</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Pizzaria Sabor Especial</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('menu')">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('about')">Sobre Nós</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('contact')">Contato</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('cart')">Carrinho</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Menu Section -->
+    <section id="menu" class="container mt-5">
+        <h2 class="text-center mb-4">Nosso Cardápio</h2>
+        <div class="row">
+            <!-- Cards de Pizza -->
+            <div class="col-md-4">
+                <div class="card pizza-card" onclick="addToCart('Pizza Margherita', 25)">
+                    <img src="images/pizza-marguerita.jpg" class="card-img-top" alt="Pizza Margherita">
+                    <div class="card-body">
+                        <h5 class="card-title">Pizza Margherita</h5>
+                        <p class="card-text">Molho de tomate, mussarela, manjericão.</p>
+                        <p class="card-text"><strong>R$25,00</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card pizza-card" onclick="addToCart('Pizza Calabresa', 28)">
+                    <img src="images/pizza-calabresa.jpg" class="card-img-top" alt="Pizza Calabresa">
+                    <div class="card-body">
+                        <h5 class="card-title">Pizza Calabresa</h5>
+                        <p class="card-text">Calabresa, cebola, mussarela.</p>
+                        <p class="card-text"><strong>R$28,00</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card pizza-card" onclick="addToCart('Pizza Quatro Queijos', 30)">
+                    <img src="images/pizza-4queijos.jpg" class="card-img-top" alt="Pizza Quatro Queijos">
+                    <div class="card-body">
+                        <h5 class="card-title">Pizza Quatro Queijos</h5>
+                        <p class="card-text">Mussarela, provolone, gorgonzola, parmesão.</p>
+                        <p class="card-text"><strong>R$30,00</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre nós Section -->
+    <section id="about" class="container mt-5" style="display: none;">
+        <h2 class="text-center mb-4">Sobre Nós</h2>
+        <p class="text-center">Bem-vindo à Pizzaria Sabor Especial! Nossa paixão é servir as melhores pizzas com ingredientes frescos e sabor autêntico. Experimente nossas deliciosas opções.</p>
+    </section>
+
+    <!-- Contato Section -->
+    <section id="contact" class="container mt-5 mb-5" style="display: none;">
+        <h2 class="text-center mb-4">Contato</h2>
+        <form class="row g-3">
+            <div class="col-md-6">
+                <input type="text" class="form-control" placeholder="Nome">
+            </div>
+            <div class="col-md-6">
+                <input type="email" class="form-control" placeholder="Email">
+            </div>
+            <div class="col-12">
+                <textarea class="form-control" rows="4" placeholder="Mensagem"></textarea>
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </div>
+        </form>
+    </section>
+
+    <!-- Carrinho Section -->
+    <section id="cart" class="container mt-5" style="display: none;">
+        <h2 class="text-center mb-4">Carrinho</h2>
+        <ul id="cartItems" class="list-group mb-3"></ul>
+        <div class="text-center">
+            <button class="btn btn-primary" onclick="processPayment()">Finalizar Pedido</button>
+            <button class="btn btn-secondary" onclick="showSection('menu')">Voltar</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-3 bg-dark text-white">
+        <p>&copy; 2023 Pizzaria Sabor Especial. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
